@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanchipuram District Roller Skating Association | KDRSA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons for Olympic Styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#071426',
+                            light: '#0c223f',
+                            dark: '#030a14',
+                        },
+                        electricBlue: '#00BFFF',
+                        cyanNeon: '#00E5FF',
+                        lightGray: '#F5F7FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        glow: '0 0 20px rgba(0, 191, 255, 0.3)',
+                        cyanGlow: '0 0 25px rgba(0, 229, 255, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Premium Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #071426;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00BFFF, #00E5FF);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00E5FF;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(12, 34, 63, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .glass-nav {
+            background: rgba(7, 20, 38, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom Keyframe Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(0, 229, 255, 0.6); }
+        }
+        .glow-pulse {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes speedLines {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+        .speed-line::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+            animation: speedLines 3s infinite linear;
+        }
+
+        /* Tilt & Hover Transitions */
+        .tilt-card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .tilt-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 191, 255, 0.25);
+        }
+
+        /* Scroll Reveal Hide Class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Grid Background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-navy font-sans text-white overflow-x-hidden bg-grid-pattern">
+
+    <!-- Loading Animation Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-navy flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative flex flex-col items-center">
+            <!-- Animated Skating Wheel Silhouette Logo -->
+            <div class="w-20 h-20 border-t-4 border-b-4 border-cyanNeon rounded-full animate-spin flex items-center justify-center">
+                <i class="fa-solid fa-person-skating text-electricBlue text-2xl animate-bounce"></i>
+            </div>
+            <div class="mt-6 text-center">
+                <h1 class="font-poppins font-black text-2xl tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-white via-cyanNeon to-electricBlue">KDRSA</h1>
+                <p class="text-[10px] text-gray-400 mt-2 tracking-wider">SKATING EXCELLENCE &bull; ESTD 1999</p>
+                <div class="w-40 h-1 bg-navy-light rounded-full mt-4 overflow-hidden relative">
+                    <div id="loader-progress" class="h-full bg-gradient-to-r from-electricBlue to-cyanNeon transition-all duration-300 w-0"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Parallax Canvas / Particles -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] bg-electricBlue opacity-[0.03] blur-[150px] rounded-full animate-pulse"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-[50vw] h-[50vw] bg-cyanNeon opacity-[0.03] blur-[180px] rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- STICKY NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 lg:py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Brand Logo / Emblem -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-tr from-electricBlue to-cyanNeon rounded-xl flex items-center justify-center shadow-glow transition-transform duration-300 group-hover:scale-110">
+                    <i class="fa-solid fa-person-skating text-white text-xl lg:text-2xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-poppins font-extrabold text-xl lg:text-2xl tracking-tight leading-none text-white group-hover:text-cyanNeon transition-colors">KDRSA</span>
+                    <span class="text-[8px] lg:text-[9px] text-gray-400 font-medium tracking-widest mt-0.5 uppercase">Kanchipuram Roller Skating</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Links (Cleaned) -->
+            <div class="hidden lg:flex items-center space-x-1 glass-card px-5 py-1.5 rounded-full border border-white/10 shadow-lg">
+                <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-cyanNeon bg-white/5">Home</a>
+                <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-gray-300 hover:text-white hover:bg-white/5">About</a>
+                <a href="#leadership" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-gray-300 hover:text-white hover:bg-white/5">Leadership</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-gray-300 hover:text-white hover:bg-white/5">Contact</a>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="hidden lg:block">
+                <a href="#contact" class="px-5 py-2 bg-gradient-to-r from-electricBlue to-cyanNeon hover:from-cyanNeon hover:to-electricBlue text-navy font-bold text-xs tracking-wider rounded-xl shadow-glow hover:shadow-cyanGlow transition-all duration-300 transform hover:-translate-y-0.5">
+                    CONTACT US
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden flex flex-col justify-between w-6 h-4 focus:outline-none z-50">
+                <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300 transform origin-left"></span>
+                <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300"></span>
+                <span class="w-full h-0.5 bg-white rounded-full transition-all duration-300 transform origin-left"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Fullscreen Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-navy-dark/95 backdrop-blur-2xl flex flex-col justify-center items-center space-y-8 transition-all duration-500 transform translate-x-full z-40 lg:hidden">
+            <a href="#home" class="mobile-nav-link text-2xl font-poppins font-bold text-white hover:text-cyanNeon transition-colors">Home</a>
+            <a href="#about" class="mobile-nav-link text-2xl font-poppins font-bold text-white hover:text-cyanNeon transition-colors">About</a>
+            <a href="#leadership" class="mobile-nav-link text-2xl font-poppins font-bold text-white hover:text-cyanNeon transition-colors">Leadership</a>
+            <a href="#contact" class="mobile-nav-link text-2xl font-poppins font-bold text-white hover:text-cyanNeon transition-colors">Contact</a>
+            <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-electricBlue to-cyanNeon text-navy font-extrabold text-sm tracking-wider rounded-xl shadow-glow">
+                CONTACT US
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="min-h-screen relative flex items-center justify-center overflow-hidden pt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-navy-dark/40 via-navy/85 to-navy z-10"></div>
+            <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Roller Skating Speed Champion Background" 
+                 class="w-full h-full object-cover object-center scale-110 filter brightness-50 contrast-125 transition-transform duration-1000"
+                 id="hero-parallax-img"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221920%22 height=%221080%22 viewBox=%220 0 1920 1080%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23071426%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Poppins%22 font-size=%2260%22 fill=%22%2300BFFF%22 text-anchor=%22middle%22>KDRSA CHAMPIONS STADIUM</text></svg>';">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full py-12 flex flex-col items-center">
+            
+            <div class="animate-float inline-flex items-center space-x-2.5 px-4 py-1.5 bg-gradient-to-r from-electricBlue/20 to-cyanNeon/20 border border-cyanNeon/30 rounded-full mb-6">
+                <span class="w-1.5 h-1.5 bg-cyanNeon rounded-full glow-pulse"></span>
+                <span class="text-[10px] font-bold tracking-widest text-cyanNeon uppercase font-poppins">TNRSA &amp; RSFI AFFILIATED</span>
+            </div>
+
+            <!-- Heavy Bold Main Heading -->
+            <div class="text-center max-w-4xl">
+                <h1 class="font-poppins font-black text-3xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-white mb-6">
+                    KANCHIPURAM DISTRICT <br class="hidden sm:inline">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-electricBlue via-cyanNeon to-white drop-shadow-cyanGlow">
+                        ROLLER SKATING
+                    </span> <br>
+                    ASSOCIATION
+                </h1>
+                
+                <p class="text-sm sm:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+                    Empowering Future Champions Through Excellence in Roller Skating. Nurturing grassroots athletics to compete at the highest National and Olympic-level arenas.
+                </p>
+
+                <!-- Dynamic Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full max-w-md mx-auto sm:max-w-none">
+                    <a href="#about" class="group relative px-6 py-3.5 bg-gradient-to-r from-electricBlue to-cyanNeon text-navy font-bold text-sm rounded-xl shadow-glow hover:shadow-cyanGlow transition-all duration-300 hover:scale-105 overflow-hidden w-full sm:w-auto text-center">
+                        <span class="relative z-10">EXPLORE ASSOCIATION</span>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 bg-transparent border-2 border-white/20 hover:border-cyanNeon text-white hover:text-cyanNeon font-bold text-sm rounded-xl transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-center">
+                        <span>CONNECT WITH US</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Static Statistics Counters Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 w-full max-w-5xl mt-6">
+                <div class="glass-card p-4 sm:p-6 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Experience</span>
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-poppins font-extrabold text-white"><span class="counter" data-target="27">0</span>+ Yrs</h3>
+                    <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Athletes Trained</span>
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-poppins font-extrabold text-white"><span class="counter" data-target="500">0</span>+</h3>
+                    <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">State &amp; National</span>
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-poppins font-extrabold text-white"><span class="counter" data-target="150">0</span>+</h3>
+                    <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-4 sm:p-6 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Int'l Medalists</span>
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-poppins font-extrabold text-white"><span class="counter" data-target="15">0</span>+</h3>
+                    <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 lg:py-24 bg-navy relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Column - Photo Montage -->
+                <div class="lg:col-span-5 relative reveal">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/10">
+                        <img src="rollerskate.jpg" 
+                             alt="KDRSA Skater training" 
+                             class="w-full h-[300px] sm:h-[380px] lg:h-[400px] object-cover transition-transform duration-700 hover:scale-110"
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22 viewBox=%220 0 800 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230c223f%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Poppins%22 font-size=%2230%22 fill=%22%2300E5FF%22 text-anchor=%22middle%22>Training Excellence</text></svg>';">
+                    </div>
+                    <!-- Decorative Floating Badges -->
+                    <div class="absolute -top-4 -left-4 bg-electricBlue text-navy font-black text-sm p-4 rounded-xl shadow-xl z-20 font-poppins rotate-[-4deg]">
+                        ESTD 1999
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 glass-card border border-cyanNeon/30 text-white font-bold text-xs px-4 py-3 rounded-xl shadow-2xl z-20 flex items-center space-x-2">
+                        <i class="fa-solid fa-medal text-cyanNeon text-xl animate-bounce"></i>
+                        <span>Olympic Standards</span>
+                    </div>
+                </div>
+
+                <!-- Right Column - Information & Details -->
+                <div class="lg:col-span-7 flex flex-col justify-center reveal">
+                    <div class="flex items-center space-x-2 text-cyanNeon mb-4">
+                        <span class="w-8 h-[2px] bg-cyanNeon"></span>
+                        <span class="text-[10px] sm:text-xs font-bold tracking-widest uppercase">ABOUT THE ASSOCIATION</span>
+                    </div>
+                    <h2 class="font-poppins font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white mb-6 leading-tight">
+                        Nurturing Roller Skating Brilliance in Kanchipuram
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
+                        The Kanchipuram District Roller Skating Association (KDRSA) is a recognized district unit under the <strong>Tamil Nadu Roller Skating Association (TNRSA)</strong>, which is proudly affiliated with the national governing body, the <strong>Roller Skating Federation of India (RSFI)</strong>.
+                    </p>
+
+                    <!-- Custom Grid of Feature Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-4">
+                        <div class="glass-card p-4 rounded-xl border border-white/5 flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-electricBlue/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-users text-electricBlue text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Grassroots Focus</h4>
+                                <p class="text-xs text-gray-400">Identifying and preparing raw district-level talent from the tender age of 4+.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-white/5 flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-cyanNeon/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-road-barrier text-cyanNeon text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Pathway To Glory</h4>
+                                <p class="text-xs text-gray-400">Official qualifiers leading straight to TNRSA State &amp; RSFI National Arenas.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-white/5 flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-cyanNeon/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-trophy text-cyanNeon text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Annual Events</h4>
+                                <p class="text-xs text-gray-400">Hosting premium, district level events featuring speed and artistic skating.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-white/5 flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-lg bg-electricBlue/10 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-heart-pulse text-electricBlue text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Strong Culture</h4>
+                                <p class="text-xs text-gray-400">Fostering top tier discipline, active physical fitness, and strong character.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VISION & MISSION SECTION -->
+    <section id="vision-mission" class="relative py-20 lg:py-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-navy-dark/90 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Olympic speed rink layout" 
+                 class="w-full h-full object-cover filter blur-[2px]"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221920%22 height=%221080%22 viewBox=%220 0 1920 1080%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23030a14%22/></svg>';">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+                
+                <!-- Vision Card -->
+                <div class="glass-card p-6 sm:p-10 rounded-3xl border border-electricBlue/30 relative overflow-hidden group hover:border-cyanNeon/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-electricBlue/10 rounded-full blur-2xl -mr-8 -mt-8 group-hover:bg-cyanNeon/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 bg-electricBlue text-navy flex items-center justify-center rounded-xl mb-6 group-hover:scale-110 transition-transform shadow-glow">
+                        <i class="fa-solid fa-eye text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-extrabold text-2xl text-white mb-4">Our Vision</h3>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        To establish Kanchipuram as one of India's strongest and most revered roller skating hubs. We envision a sustainable sports structure capable of producing elite physical powerhouses, world champions, and Olympic-bound speed skaters representing the tri-color on the global podium.
+                    </p>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="glass-card p-6 sm:p-10 rounded-3xl border border-cyanNeon/30 relative overflow-hidden group hover:border-electricBlue/50 transition-colors duration-500 reveal">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyanNeon/10 rounded-full blur-2xl -mr-8 -mt-8 group-hover:bg-electricBlue/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 bg-cyanNeon text-navy flex items-center justify-center rounded-xl mb-6 group-hover:scale-110 transition-transform shadow-cyanGlow">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-extrabold text-2xl text-white mb-4">Our Mission</h3>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        To systematically deliver highly professional coaching pathways, construct modernized training arenas, facilitate robust, ethically structured district competitions, and foster strong parent-coach collaboration. We guide dedicated athletes seamlessly from beginners to international champions.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP SECTION -->
+    <section id="leadership" class="py-20 lg:py-24 bg-navy-dark relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Header Title Block -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal">
+                <div class="flex items-center justify-center space-x-2 text-cyanNeon mb-4">
+                    <span class="w-8 h-[2px] bg-cyanNeon"></span>
+                    <span class="text-[10px] sm:text-xs font-bold tracking-widest uppercase">EXECUTIVE LEADERSHIP</span>
+                    <span class="w-8 h-[2px] bg-cyanNeon"></span>
+                </div>
+                <h2 class="font-poppins font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white">The Driving Force Behind KDRSA</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-electricBlue to-cyanNeon mx-auto mt-4 rounded-full"></div>
+                <p class="text-sm text-gray-400 mt-4 font-light">Combining dynamic, supportive executive support with expert athletic mentorship of 27+ years.</p>
+            </div>
+
+            <!-- Profiles Layout: President Card and Secretary Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                
+                <!-- PRESIDENT PROFILE CARD -->
+                <div class="glass-card rounded-3xl border border-white/10 overflow-hidden shadow-2xl relative flex flex-col justify-between tilt-card hover:border-cyanNeon/30 reveal">
+                    <div class="p-6 sm:p-10">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-6">
+                            <div class="relative group">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-cyanNeon to-electricBlue rounded-full animate-spin duration-3000 opacity-60"></div>
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-navy relative z-10 overflow-hidden shadow-2xl">
+                                    <img src="pre.jpeg" 
+                                         alt="Dr. Amutha Karunanidhi" 
+                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-115"
+                                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300E5FF%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22Poppins%22 font-weight=%22bold%22 font-size=%22100%22 fill=%22%23071426%22 text-anchor=%22middle%22>AK</text></svg>';">
+                                </div>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <h3 class="font-poppins font-extrabold text-xl sm:text-2xl text-white">Dr. Amutha Karunanidhi</h3>
+                                <p class="text-cyanNeon font-semibold text-xs tracking-widest uppercase mt-1">President — KDRSA</p>
+                                <p class="text-gray-400 text-xs mt-1 italic">Supportive Leader &amp; Administrator</p>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
+                            Dr. Amutha Karunanidhi serves as the President of KDRSA, providing unwavering guidance and structural resources for association growth. Her leadership consistently ensures smooth communication with TNRSA and RSFI, creating an empowering and organized platform that motivates skaters, coaches, and parents to collaborate for athletic excellence.
+                        </p>
+
+                        <div class="space-y-3">
+                            <h4 class="font-poppins font-bold text-white text-[10px] tracking-wider uppercase text-cyanNeon">CONTRIBUTIONS &amp; SUPPORT</h4>
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-circle-check text-cyanNeon text-sm shrink-0"></i>
+                                    <span>Strong leadership that empowers district sport infrastructure.</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-circle-check text-cyanNeon text-sm shrink-0"></i>
+                                    <span>Supportive resource allocation for modern speed training gear.</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-circle-check text-cyanNeon text-sm shrink-0"></i>
+                                    <span>Liaising and coordination with official State/National bodies.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-electricBlue/20 to-cyanNeon/10 px-6 sm:px-10 py-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-[10px] tracking-widest text-gray-400 font-bold">KDRSA EXECUTIVE BOARD</span>
+                        <i class="fa-solid fa-shield-halved text-cyanNeon text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- SECRETARY PROFILE CARD -->
+                <div class="glass-card rounded-3xl border border-white/10 overflow-hidden shadow-2xl relative flex flex-col justify-between tilt-card hover:border-electricBlue/30 reveal">
+                    <div class="p-6 sm:p-10">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-6">
+                            <div class="relative group">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-electricBlue to-cyanNeon rounded-full animate-spin duration-3000 opacity-60"></div>
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-navy relative z-10 overflow-hidden shadow-2xl">
+                                    <img src="sec.jpeg" 
+                                         alt="Mr. Sundarrajan" 
+                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-115"
+                                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300BFFF%22/><text x=%2250%25%22 y=%2255%25%22 font-family=%22Poppins%22 font-weight=%22bold%22 font-size=%22100%22 fill=%22%23071426%22 text-anchor=%22middle%22>SR</text></svg>';">
+                                </div>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <h3 class="font-poppins font-extrabold text-xl sm:text-2xl text-white">Mr. Sundarrajan</h3>
+                                <p class="text-electricBlue font-semibold text-xs tracking-widest uppercase mt-1">Secretary — KDRSA</p>
+                                <p class="text-gray-400 text-xs mt-1 italic">Olympic Coach &amp; Master Administrator</p>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
+                            Mr. Sundarrajan brings an exceptional **27 years of skating development** and grassroots elite coaching experience. Having trained and mentored countless skaters who conquered State, National, and International championship podiums, his administration ensures absolute transparency and stellar execution of training and official selection championships.
+                        </p>
+
+                        <div class="space-y-3">
+                            <h4 class="font-poppins font-bold text-white text-[10px] tracking-wider uppercase text-electricBlue">OFFICIAL ACHIEVEMENTS</h4>
+                            <div class="grid grid-cols-1 gap-2">
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-trophy text-electricBlue text-sm shrink-0"></i>
+                                    <span>**27 Years Coach &amp; Advocate** of roller sports.</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-circle-check text-electricBlue text-sm shrink-0"></i>
+                                    <span>International medalists trained directly under his guidance.</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs sm:text-sm text-gray-300">
+                                    <i class="fa-solid fa-circle-check text-electricBlue text-sm shrink-0"></i>
+                                    <span>Dedicated to high-intensity athletic speed preparation.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-electricBlue/20 to-cyanNeon/10 px-6 sm:px-10 py-4 border-t border-white/5 flex justify-between items-center">
+                        <span class="text-[10px] tracking-widest text-electricBlue font-bold">27+ YEARS AT THE HELM</span>
+                        <div class="flex items-center space-x-0.5">
+                            <i class="fa-solid fa-star text-cyanNeon text-[10px]"></i>
+                            <i class="fa-solid fa-star text-cyanNeon text-[10px]"></i>
+                            <i class="fa-solid fa-star text-cyanNeon text-[10px]"></i>
+                            <i class="fa-solid fa-star text-cyanNeon text-[10px]"></i>
+                            <i class="fa-solid fa-star text-cyanNeon text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE KDRSA -->
+    <section class="py-20 lg:py-24 bg-navy relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 reveal">
+                <div class="flex items-center justify-center space-x-2 text-cyanNeon mb-4">
+                    <span class="w-8 h-[2px] bg-cyanNeon"></span>
+                    <span class="text-[10px] sm:text-xs font-bold tracking-widest uppercase">THE KDRSA ADVANTAGE</span>
+                    <span class="w-8 h-[2px] bg-cyanNeon"></span>
+                </div>
+                <h2 class="font-poppins font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white">Why Join Our Elite Association?</h2>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
+                        <i class="fa-solid fa-gauge-high text-cyanNeon text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Talent Development</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Nurturing athletic performance scientifically. Customized training schedules designed specifically to enhance stamina, speed, agility, and balance.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
+                        <i class="fa-solid fa-compass text-electricBlue text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Pathway to Nationals</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Uninterrupted track pathways starting from local District selections, moving directly into the State Championships, and onwards to RSFI National Glory.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
+                        <i class="fa-solid fa-award text-cyanNeon text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Championship Platforms</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Compete under official world standards. Highly certified officials, professional timing software, and supreme tracks ensuring authentic rankings.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
+                        <i class="fa-solid fa-people-roof text-electricBlue text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Community Building</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Creating lifetime relationships between skaters, parents, and coaches. A family-driven ecosystem promoting discipline, and athletic camaraderie.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
+                        <i class="fa-solid fa-user-tie text-cyanNeon text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Expert Leadership</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Led by veteran coaches, physical educators, and supportive executive leaders ensuring that resources flow transparently down to basic skaters.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-6 rounded-2xl border border-white/5 hover:border-cyanNeon/30 transition-all duration-300 group reveal">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-navy rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
+                        <i class="fa-solid fa-person-skating text-electricBlue text-xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-bold text-lg text-white mb-2">Future Champions</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
+                        Tailored advanced training strategies targeting fast-paced performance, high psychological resilience, race strategy, and absolute speed.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & REGISTRATION FORM SECTION -->
+    <section id="contact" class="py-20 lg:py-24 bg-navy-dark relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                
+                <!-- Left Side Info Block -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-8 lg:space-y-0 reveal">
+                    <div>
+                        <div class="flex items-center space-x-2 text-cyanNeon mb-4">
+                            <span class="w-8 sm:w-10 h-[2px] bg-cyanNeon"></span>
+                            <span class="text-xs font-bold tracking-widest uppercase">GET IN TOUCH</span>
+                        </div>
+                        <h2 class="font-poppins font-black text-3xl sm:text-4xl text-white mb-4 sm:mb-6">Contact KDRSA Office</h2>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed font-light">
+                            Have questions regarding upcoming district trials, licensing registration, or executive sponsorships? Our administrative office is ready to support you.
+                        </p>
+
+                        <!-- Informational Contact Cards -->
+                        <div class="space-y-3 sm:space-y-4">
+                            <div class="flex items-center space-x-4 bg-navy-light p-3.5 sm:p-4 rounded-xl border border-white/5">
+                                <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg bg-electricBlue/20 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot text-electricBlue text-lg"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="font-bold text-white text-[11px] sm:text-xs uppercase tracking-wider">Office Headquarters</h4>
+                                    <p class="text-xs sm:text-sm text-gray-300 font-light truncate">Kanchipuram, Tamil Nadu, India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 bg-navy-light p-3.5 sm:p-4 rounded-xl border border-white/5">
+                                <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg bg-cyanNeon/20 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope text-cyanNeon text-lg"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="font-bold text-white text-[11px] sm:text-xs uppercase tracking-wider">Electronic Mail</h4>
+                                    <p class="text-xs sm:text-sm text-gray-300 font-light truncate">sundarbulls@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4 bg-navy-light p-3.5 sm:p-4 rounded-xl border border-white/5">
+                                <div class="w-10 sm:w-12 h-10 sm:h-12 rounded-lg bg-electricBlue/20 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-phone text-electricBlue text-lg"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <h4 class="font-bold text-white text-[11px] sm:text-xs uppercase tracking-wider">Assistance Helpline</h4>
+                                    <p class="text-xs sm:text-sm text-gray-300 font-light">+91 99413 98103</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Affiliations Visual Grid -->
+                    <div class="pt-6 border-t border-white/10">
+                        <h4 class="text-[10px] sm:text-xs font-bold text-gray-400 tracking-widest uppercase mb-3">Official Affiliates</h4>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <div class="flex items-center space-x-2 bg-white/5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-white/5">
+                                <span class="w-2 h-2 rounded-full bg-cyanNeon"></span>
+                                <span class="text-[11px] sm:text-xs font-bold text-white">TNRSA</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white/5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-white/5">
+                                <span class="w-2 h-2 rounded-full bg-electricBlue"></span>
+                                <span class="text-[11px] sm:text-xs font-bold text-white">RSFI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Interactive Glass Form -->
+                <div class="lg:col-span-7 reveal">
+                    <div class="glass-card p-6 sm:p-8 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-cyanNeon/5 rounded-full blur-2xl"></div>
+                        
+                        <h3 class="font-poppins font-extrabold text-xl sm:text-2xl text-white mb-6">Send an Inquiry</h3>
+                        
+                        <form id="contact-form" class="space-y-4 sm:space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                <div>
+                                    <label class="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-2" for="name">Full Name</label>
+                                    <input type="text" id="name" required class="w-full bg-navy-dark border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyanNeon focus:ring-1 focus:ring-cyanNeon transition-all" placeholder="E.g., Anand Kumar">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-2" for="email">Email Address</label>
+                                    <input type="email" id="email" required class="w-full bg-navy-dark border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyanNeon focus:ring-1 focus:ring-cyanNeon transition-all" placeholder="E.g., anand@gmail.com">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                <div>
+                                    <label class="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-2" for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" required class="w-full bg-navy-dark border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyanNeon focus:ring-1 focus:ring-cyanNeon transition-all" placeholder="E.g., +91 9941398103">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-2" for="subject">Inquiry Area</label>
+                                    <select id="subject" class="w-full bg-navy-dark border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-white focus:outline-none focus:border-cyanNeon focus:ring-1 focus:ring-cyanNeon transition-all">
+                                        <option value="championship">Championship Registration</option>
+                                        <option value="academy">Professional Coaching Inquiry</option>
+                                        <option value="licensing">RSFI Skater Licensing</option>
+                                        <option value="general">General Administrative Query</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mb-1.5 sm:mb-2" for="message">Detailed Message</label>
+                                <textarea id="message" rows="4" required class="w-full bg-navy-dark border border-white/10 rounded-xl px-4 py-3 sm:py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyanNeon focus:ring-1 focus:ring-cyanNeon transition-all" placeholder="Tell us about your skating experience or general queries..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 sm:py-4 bg-gradient-to-r from-electricBlue to-cyanNeon hover:from-cyanNeon hover:to-electricBlue text-navy font-extrabold text-sm sm:text-base tracking-widest rounded-xl shadow-glow hover:shadow-cyanGlow transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] focus:outline-none">
+                                TRANSMIT INQUIRY
+                            </button>
+
+                            <div id="form-toast" class="hidden text-center text-xs sm:text-sm font-bold p-3 rounded-lg mt-4"></div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP OVERVIEW COMPONENT -->
+    <section class="w-full h-80 bg-navy-dark relative border-t border-b border-white/10 z-20">
+        <div class="absolute inset-0 bg-navy flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
+            <div class="w-14 h-14 bg-cyanNeon/10 text-cyanNeon rounded-full flex items-center justify-center mb-4 shadow-cyanGlow">
+                <i class="fa-solid fa-map-location-dot text-xl"></i>
+            </div>
+            <h3 class="font-poppins font-bold text-lg sm:text-xl text-white">Interactive Skating Arenas — Kanchipuram</h3>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-md mt-2 px-4">Connecting training grounds, speed banked tracks, and municipal arenas for district practice.</p>
+            <span class="mt-4 text-[10px] sm:text-xs font-semibold px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-cyanNeon">GPS: 12.9716° N, 79.7022° E</span>
+        </div>
+    </section>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="bg-navy-dark py-12 sm:py-16 border-t border-white/10 relative z-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-electricBlue/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1 -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-tr from-electricBlue to-cyanNeon rounded-lg flex items-center justify-center shadow-glow">
+                            <i class="fa-solid fa-person-skating text-white text-xl"></i>
+                        </div>
+                        <span class="font-poppins font-black text-2xl text-white">KDRSA</span>
+                    </div>
+                    <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                        Officially recognized unit under the Tamil Nadu Roller Skating Association (TNRSA). Promoting active youth athletic performance, safety guidance, and speed skating milestones since 1999.
+                    </p>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-cyanNeon hover:border-cyanNeon flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-cyanNeon hover:border-cyanNeon flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-cyanNeon hover:border-cyanNeon flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-poppins font-bold text-sm tracking-wider uppercase text-white mb-6">Navigation</h4>
+                    <ul class="space-y-3 text-xs">
+                        <li><a href="#home" class="text-gray-400 hover:text-cyanNeon transition-all">Home Overview</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-cyanNeon transition-all">About Association</a></li>
+                        <li><a href="#leadership" class="text-gray-400 hover:text-cyanNeon transition-all">Executive Leadership</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-cyanNeon transition-all">Contact Desk</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-poppins font-bold text-sm tracking-wider uppercase text-white mb-6">Administrative Info</h4>
+                    <ul class="space-y-4 text-xs text-gray-400 font-light leading-relaxed">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-map-location-dot text-cyanNeon mt-0.5 text-base shrink-0"></i>
+                            <span>Office Headquarters,<br>Kanchipuram, Tamil Nadu,<br>India - 631501</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-cyanNeon text-base shrink-0"></i>
+                            <span>sundarbulls@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div>
+                    <h4 class="font-poppins font-bold text-sm tracking-wider uppercase text-white mb-6">Affiliation Hierarchy</h4>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-xl p-3">
+                            <span class="w-2 h-2 rounded-full bg-cyanNeon"></span>
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase">TNRSA</h5>
+                                <p class="text-[9px] text-gray-400">Tamil Nadu Roller Skating Association</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-xl p-3">
+                            <span class="w-2 h-2 rounded-full bg-electricBlue"></span>
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase">RSFI</h5>
+                                <p class="text-[9px] text-gray-400">Roller Skating Federation of India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-center gap-4 text-gray-400">
+                <div class="flex flex-col text-left md:text-left">
+                    <p class="text-[11px] leading-relaxed">&copy; 2026 Kanchipuram District Roller Skating Association. All Rights Reserved.</p>
+                    <p class="text-[9px] text-gray-500 mt-1">Recognized under Tamil Nadu Roller Skating Association (TNRSA) and affiliated with the Roller Skating Federation of India (RSFI).</p>
+                </div>
+                <div class="flex space-x-4 text-[10px] tracking-widest font-bold">
+                    <a href="#" class="hover:text-cyanNeon">PRIVACY POLICY</a>
+                    <span class="text-white/10">|</span>
+                    <a href="#" class="hover:text-cyanNeon">CODES OF CONDUCT</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        window.addEventListener('load', () => {
+            const progress = document.getElementById('loader-progress');
+            const loader = document.getElementById('loader');
+            
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    loader.classList.add('opacity-0');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 700);
+                } else {
+                    width += 25;
+                    progress.style.width = width + '%';
+                }
+            }, 50);
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('glass-nav', 'py-3');
+                navbar.classList.remove('py-4', 'lg:py-5');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-3');
+                navbar.classList.add('py-4', 'lg:py-5');
+            }
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyanNeon', 'bg-white/5');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-cyanNeon', 'bg-white/5');
+                    link.classList.remove('text-gray-300');
+                }
+            });
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpened = mobileMenu.classList.contains('translate-x-0');
+            if (isOpened) {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuBtn.children[0].classList.remove('rotate-45', 'translate-y-2');
+                mobileMenuBtn.children[1].classList.remove('opacity-0');
+                mobileMenuBtn.children[2].classList.remove('-rotate-45', '-translate-y-2');
+            } else {
+                mobileMenu.classList.add('translate-x-0');
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenuBtn.children[0].classList.add('rotate-45', 'translate-y-2.5');
+                mobileMenuBtn.children[1].classList.add('opacity-0');
+                mobileMenuBtn.children[2].classList.add('-rotate-45', '-translate-y-2.5');
+            }
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuBtn.children[0].classList.remove('rotate-45', 'translate-y-2.5');
+                mobileMenuBtn.children[1].classList.remove('opacity-0');
+                mobileMenuBtn.children[2].classList.remove('-rotate-45', '-translate-y-2.5');
+            });
+        });
+
+        const parallaxImg = document.getElementById('hero-parallax-img');
+        window.addEventListener('scroll', () => {
+            const offset = window.scrollY;
+            if (parallaxImg) {
+                parallaxImg.style.transform = `translateY(${offset * 0.35}px) scale(1.1)`;
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalVal = parseInt(target.getAttribute('data-target'));
+                    let count = 0;
+                    const speed = finalVal / 80;
+                    
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < finalVal) {
+                            target.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            target.innerText = finalVal;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        const contactForm = document.getElementById('contact-form');
+        const formToast = document.getElementById('form-toast');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameVal = document.getElementById('name').value;
+            
+            formToast.classList.remove('hidden', 'bg-cyanNeon/10', 'text-cyanNeon');
+            formToast.classList.add('block', 'bg-cyanNeon/10', 'text-cyanNeon', 'border', 'border-cyanNeon/30');
+            formToast.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin mr-2"></i> Sending your message to the KDRSA secretary...`;
+
+            setTimeout(() => {
+                formToast.innerHTML = `<i class="fa-solid fa-circle-check mr-2 animate-bounce"></i> Thank you, <strong>${nameVal}</strong>. The KDRSA administrative board has successfully received your transmission!`;
+                contactForm.reset();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
