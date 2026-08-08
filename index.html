@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanchipuram District Roller Skating Association | KDRSA</title>
-    <!-- Tailwind CSS CDN -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Poppins & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons for Olympic Styling -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -41,7 +39,7 @@
     </script>
     
     <style>
-        /* Premium Custom Scrollbar */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -134,10 +132,8 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden bg-grid-pattern">
 
-    <!-- Loading Animation Screen -->
     <div id="loader" class="fixed inset-0 z-[100] bg-slate-50 flex flex-col items-center justify-center transition-opacity duration-700">
         <div class="relative flex flex-col items-center">
-            <!-- Animated Skating Wheel Silhouette Logo -->
             <div class="w-20 h-20 border-t-4 border-b-4 border-electricBlue rounded-full animate-spin flex items-center justify-center">
                 <i class="fa-solid fa-person-skating text-electricBlue text-2xl animate-bounce"></i>
             </div>
@@ -151,16 +147,13 @@
         </div>
     </div>
 
-    <!-- Background Parallax Canvas / Particles -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute top-[20%] left-[10%] w-[40vw] h-[40vw] bg-sky-300 opacity-[0.12] blur-[150px] rounded-full animate-pulse"></div>
         <div class="absolute bottom-[20%] right-[10%] w-[50vw] h-[50vw] bg-cyan-300 opacity-[0.12] blur-[180px] rounded-full animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
-    <!-- STICKY NAVBAR -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 lg:py-5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <!-- Brand Logo / Emblem -->
             <a href="#home" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-tr from-electricBlue to-cyanNeon rounded-xl flex items-center justify-center shadow-glow transition-transform duration-300 group-hover:scale-110">
                     <i class="fa-solid fa-person-skating text-white text-xl lg:text-2xl"></i>
@@ -178,6 +171,7 @@
                 <a href="#coaches-meeting" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">Coaches Meeting</a>
                 <a href="#leadership" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">Leadership</a>
                 <a href="#contact" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">Contact</a>
+                <a href="#certificate" class="nav-link px-4 py-2 rounded-full text-sm font-semibold tracking-wide transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">Registration</a>
             </div>
 
             <!-- CTA Button -->
@@ -196,19 +190,19 @@
         </div>
 
         <!-- Mobile Fullscreen Menu -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-50/98 backdrop-blur-2xl flex flex-col justify-center items-center space-y-8 transition-all duration-500 transform translate-x-full z-40 lg:hidden">
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-50/98 backdrop-blur-2xl flex flex-col justify-center items-center space-y-6 transition-all duration-500 transform translate-x-full z-40 lg:hidden">
             <a href="#home" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">Home</a>
             <a href="#about" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">About</a>
             <a href="#coaches-meeting" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">Coaches Meeting</a>
             <a href="#leadership" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">Leadership</a>
             <a href="#contact" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">Contact</a>
+            <a href="#certificate" class="mobile-nav-link text-2xl font-poppins font-bold text-slate-900 hover:text-electricBlue transition-colors">Registration</a>
             <a href="#contact" class="px-6 py-2.5 bg-gradient-to-r from-electricBlue to-cyanNeon text-white font-extrabold text-sm tracking-wider rounded-xl shadow-glow">
                 CONTACT US
             </a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="home" class="min-h-screen relative flex items-center justify-center overflow-hidden pt-16 bg-slate-50">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-slate-50/60 via-slate-50/85 to-slate-50 z-10"></div>
@@ -226,7 +220,6 @@
                 <span class="text-[10px] font-bold tracking-widest text-electricBlue uppercase font-poppins">TNRSA &amp; RSFI AFFILIATED</span>
             </div>
 
-            <!-- Heavy Bold Main Heading -->
             <div class="text-center max-w-4xl">
                 <h1 class="font-poppins font-black text-3xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-slate-900 mb-6">
                     KANCHIPURAM DISTRICT <br class="hidden sm:inline">
@@ -240,57 +233,53 @@
                     Empowering Future Champions Through Excellence in Roller Skating. Nurturing grassroots athletics to compete at the highest National and Olympic-level arenas.
                 </p>
 
-                <!-- Dynamic Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full max-w-md mx-auto sm:max-w-none">
-                <a href="#about" class="group relative px-6 py-3.5 bg-gradient-to-r from-electricBlue to-cyanNeon text-white font-bold text-sm rounded-xl shadow-glow hover:shadow-cyanGlow transition-all duration-300 hover:scale-105 overflow-hidden w-full sm:w-auto text-center">
-                    <span class="relative z-10">EXPLORE ASSOCIATION</span>
-                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                </a>
-                <a href="#contact" class="px-6 py-3.5 bg-white border-2 border-slate-300 hover:border-electricBlue text-slate-800 hover:text-electricBlue font-bold text-sm rounded-xl transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-center shadow-sm">
-                    <span>CONNECT WITH US</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full max-w-md mx-auto sm:max-w-none">
+                    <a href="#about" class="group relative px-6 py-3.5 bg-gradient-to-r from-electricBlue to-cyanNeon text-white font-bold text-sm rounded-xl shadow-glow hover:shadow-cyanGlow transition-all duration-300 hover:scale-105 overflow-hidden w-full sm:w-auto text-center">
+                        <span class="relative z-10">EXPLORE ASSOCIATION</span>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 bg-white border-2 border-slate-300 hover:border-electricBlue text-slate-800 hover:text-electricBlue font-bold text-sm rounded-xl transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2 text-center shadow-sm">
+                        <span>CONNECT WITH US</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
             </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full max-w-6xl mt-6">
+                <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Experience</span>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="27">0</span>+ Yrs</h3>
+                    <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Trained Students</span>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="5000">0</span>+</h3>
+                    <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">State Level</span>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="1500">0</span>+</h3>
+                    <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
+                    <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">National Level</span>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="150">0</span>+</h3>
+                    <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
+                </div>
+                <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line col-span-2 sm:col-span-1">
+                    <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Int'l &amp; Asian</span>
+                    <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="2">0</span> Medalists</h3>
+                    <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <!-- Static Statistics Counters Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full max-w-6xl mt-6">
-            <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
-                <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Experience</span>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="27">0</span>+ Yrs</h3>
-                <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
-            </div>
-            <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
-                <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Trained Students</span>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="5000">0</span>+</h3>
-                <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
-            </div>
-            <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
-                <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">State Level</span>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="1500">0</span>+</h3>
-                <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
-            </div>
-            <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-electricBlue text-center flex flex-col justify-center items-center relative overflow-hidden speed-line">
-                <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">National Level</span>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="150">0</span>+</h3>
-                <div class="w-6 h-1 bg-electricBlue mt-2 rounded"></div>
-            </div>
-            <div class="glass-card p-3 sm:p-5 rounded-2xl border-l-4 border-l-cyanNeon text-center flex flex-col justify-center items-center relative overflow-hidden speed-line col-span-2 sm:col-span-1">
-                <span class="text-slate-500 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-1">Int'l &amp; Asian</span>
-                <h3 class="text-xl sm:text-2xl lg:text-3xl font-poppins font-extrabold text-slate-900"><span class="counter" data-target="2">0</span> Medalists</h3>
-                <div class="w-6 h-1 bg-cyanNeon mt-2 rounded"></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ABOUT SECTION -->
     <section id="about" class="py-20 lg:py-24 bg-slate-50 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
-                <!-- Left Column - Photo Montage -->
                 <div class="lg:col-span-5 relative reveal">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-xl border-2 border-slate-200">
                         <img src="rollerskate.jpg" 
@@ -298,7 +287,6 @@
                              class="w-full h-[300px] sm:h-[380px] lg:h-[400px] object-cover transition-transform duration-700 hover:scale-110"
                              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22800%22 viewBox=%220 0 800 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23F1F5F9%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Poppins%22 font-size=%2230%22 fill=%22%230284C7%22 text-anchor=%22middle%22>Training Excellence</text></svg>';">
                     </div>
-                    <!-- Decorative Floating Badges -->
                     <div class="absolute -top-4 -left-4 bg-electricBlue text-white font-black text-sm p-4 rounded-xl shadow-xl z-20 font-poppins rotate-[-4deg]">
                         ESTD 1999
                     </div>
@@ -308,7 +296,6 @@
                     </div>
                 </div>
 
-                <!-- Right Column - Information & Details -->
                 <div class="lg:col-span-7 flex flex-col justify-center reveal">
                     <div class="flex items-center space-x-2 text-electricBlue mb-4">
                         <span class="w-8 h-[2px] bg-electricBlue"></span>
@@ -321,7 +308,6 @@
                         The Kanchipuram District Roller Skating Association (KDRSA) is a recognized district unit under the <strong class="text-slate-900">Tamil Nadu Roller Skating Association (TNRSA)</strong>, which is proudly affiliated with the national governing body, the <strong class="text-slate-900">Roller Skating Federation of India (RSFI)</strong>.
                     </p>
 
-                    <!-- Custom Grid of Feature Cards -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-4">
                         <div class="glass-card p-4 rounded-xl border border-slate-200/80 flex items-start space-x-3">
                             <div class="w-10 h-10 rounded-lg bg-sky-100 flex items-center justify-center shrink-0">
@@ -369,7 +355,6 @@
         </div>
     </section>
 
-    <!-- VISION & MISSION SECTION -->
     <section id="vision-mission" class="relative py-20 lg:py-24 overflow-hidden bg-slate-100">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-slate-100/90 z-10"></div>
@@ -382,7 +367,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
                 
-                <!-- Vision Card -->
                 <div class="glass-card p-6 sm:p-10 rounded-3xl border border-sky-200 relative overflow-hidden group hover:border-sky-400 transition-colors duration-500 reveal">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-sky-200/50 rounded-full blur-2xl -mr-8 -mt-8 group-hover:bg-sky-300/50 transition-all duration-500"></div>
                     <div class="w-12 h-12 bg-electricBlue text-white flex items-center justify-center rounded-xl mb-6 group-hover:scale-110 transition-transform shadow-glow">
@@ -394,7 +378,6 @@
                     </p>
                 </div>
 
-                <!-- Mission Card -->
                 <div class="glass-card p-6 sm:p-10 rounded-3xl border border-cyan-200 relative overflow-hidden group hover:border-cyan-400 transition-colors duration-500 reveal">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-200/50 rounded-full blur-2xl -mr-8 -mt-8 group-hover:bg-cyan-300/50 transition-all duration-500"></div>
                     <div class="w-12 h-12 bg-cyanNeon text-white flex items-center justify-center rounded-xl mb-6 group-hover:scale-110 transition-transform shadow-cyanGlow">
@@ -410,7 +393,6 @@
         </div>
     </section>
 
-    <!-- ASSOCIATION & COACHES MEETING SECTION -->
     <section id="coaches-meeting" class="py-20 lg:py-24 bg-white border-y border-slate-200/80 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal">
@@ -428,13 +410,12 @@
                 </p>
             </div>
 
-            <!-- Image Showcase Card -->
             <div class="glass-card rounded-3xl border border-slate-200/90 overflow-hidden shadow-xl p-3 sm:p-5 bg-white reveal">
                 <div class="relative rounded-2xl overflow-hidden group">
-                    <img src="grouppic.jpeg" 
+                    <img src="WhatsApp Image 2026-07-19 at 8.22.43 AM.jpeg" 
                          alt="Kanchipuram District Association and Coaches Meeting" 
                          class="w-full h-auto max-h-[650px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-[1.01]"
-                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22 viewBox=%220 0 1200 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23F1F5F9%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Poppins%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22%230284C7%22 text-anchor=%22middle%22>Kanchipuram District Association and Coaches Meeting</text></svg>';">
+                         onerror="this.onerror=null; this.src='grouppic.jpeg';">
                     <div class="mt-4 sm:mt-0 sm:absolute sm:bottom-0 sm:inset-x-0 sm:bg-gradient-to-t sm:from-slate-950/85 sm:via-slate-950/50 sm:to-transparent p-4 sm:p-6 text-slate-900 sm:text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                         <div>
                             <span class="px-3 py-1 bg-electricBlue text-white rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider">DISTRICT CONVENTION</span>
@@ -450,11 +431,9 @@
         </div>
     </section>
 
-    <!-- LEADERSHIP SECTION -->
     <section id="leadership" class="py-20 lg:py-24 bg-slate-100 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Header Title Block -->
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20 reveal">
                 <div class="flex items-center justify-center space-x-2 text-electricBlue mb-4">
                     <span class="w-8 h-[2px] bg-electricBlue"></span>
@@ -466,7 +445,6 @@
                 <p class="text-sm text-slate-500 mt-4 font-normal">Combining dynamic, supportive executive support with expert athletic mentorship of 27+ years.</p>
             </div>
 
-            <!-- Profiles Layout: President Card and Secretary Card -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                 
                 <!-- PRESIDENT PROFILE CARD -->
@@ -538,7 +516,7 @@
                         </div>
 
                         <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                            Mr. Sundarrajan brings an exceptional **27 years of skating development** and grassroots elite coaching experience. Having trained and mentored countless skaters who conquered State, National, and International championship podiums, his administration ensures absolute transparency and stellar execution of training and official selection championships.
+                            Mr. Sundarrajan brings an exceptional <strong>27 years of skating development</strong> and grassroots elite coaching experience. Having trained and mentored countless skaters who conquered State, National, and International championship podiums, his administration ensures absolute transparency and stellar execution of training and official selection championships.
                         </p>
 
                         <div class="space-y-3">
@@ -546,7 +524,7 @@
                             <div class="grid grid-cols-1 gap-2">
                                 <div class="flex items-center space-x-2 text-xs sm:text-sm text-slate-700">
                                     <i class="fa-solid fa-trophy text-electricBlue text-sm shrink-0"></i>
-                                    <span>**27 Years Coach &amp; Advocate** of roller sports.</span>
+                                    <span><strong>27 Years Coach &amp; Advocate</strong> of roller sports.</span>
                                 </div>
                                 <div class="flex items-center space-x-2 text-xs sm:text-sm text-slate-700">
                                     <i class="fa-solid fa-circle-check text-electricBlue text-sm shrink-0"></i>
@@ -575,7 +553,6 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE KDRSA -->
     <section class="py-20 lg:py-24 bg-slate-50 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16 reveal">
@@ -587,10 +564,7 @@
                 <h2 class="font-poppins font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900">Why Join Our Elite Association?</h2>
             </div>
 
-            <!-- Features Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                
-                <!-- Card 1 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-sky-700 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
                         <i class="fa-solid fa-gauge-high text-xl"></i>
@@ -601,7 +575,6 @@
                     </p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-sky-600 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
                         <i class="fa-solid fa-compass text-xl"></i>
@@ -612,7 +585,6 @@
                     </p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-sky-700 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
                         <i class="fa-solid fa-award text-xl"></i>
@@ -623,7 +595,6 @@
                     </p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-sky-600 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
                         <i class="fa-solid fa-people-roof text-xl"></i>
@@ -634,7 +605,6 @@
                     </p>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-electricBlue to-sky-700 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-glow">
                         <i class="fa-solid fa-user-tie text-xl"></i>
@@ -645,7 +615,6 @@
                     </p>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 hover:border-sky-300 transition-all duration-300 group reveal">
                     <div class="w-12 h-12 bg-gradient-to-br from-cyanNeon to-sky-600 text-white rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-cyanGlow">
                         <i class="fa-solid fa-person-skating text-xl"></i>
@@ -655,12 +624,10 @@
                         Tailored advanced training strategies targeting fast-paced performance, high psychological resilience, race strategy, and absolute speed.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="py-20 lg:py-24 bg-slate-100 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto reveal text-center">
@@ -675,7 +642,6 @@
                     Have questions regarding upcoming district trials, licensing registration, or executive sponsorships? Our administrative office is ready to support you.
                 </p>
 
-                <!-- Informational Contact Cards Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-left mb-10">
                     <div class="flex items-center space-x-4 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
                         <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center shrink-0">
@@ -708,7 +674,6 @@
                     </div>
                 </div>
 
-                <!-- Affiliations Visual Grid -->
                 <div class="pt-6 border-t border-slate-200 flex flex-col items-center">
                     <h4 class="text-[10px] sm:text-xs font-bold text-slate-500 tracking-widest uppercase mb-3">Official Affiliates</h4>
                     <div class="flex flex-wrap items-center justify-center gap-3">
@@ -727,7 +692,6 @@
         </div>
     </section>
 
-    <!-- MAP OVERVIEW COMPONENT -->
     <section class="w-full h-80 bg-slate-100 relative border-t border-b border-slate-200 z-20">
         <div class="absolute inset-0 bg-slate-50 flex flex-col items-center justify-center text-center p-6 bg-grid-pattern">
             <div class="w-14 h-14 bg-sky-100 text-electricBlue rounded-full flex items-center justify-center mb-4 shadow-sm">
@@ -739,13 +703,40 @@
         </div>
     </section>
 
-    <!-- PREMIUM FOOTER -->
+    <section id="certificate" class="py-16 lg:py-20 bg-white border-t border-slate-200 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+                <div class="flex items-center justify-center space-x-2 text-electricBlue mb-3">
+                    <span class="w-8 h-[2px] bg-electricBlue"></span>
+                    <span class="text-[10px] sm:text-xs font-bold tracking-widest uppercase">OFFICIAL DOCUMENTATION</span>
+                    <span class="w-8 h-[2px] bg-electricBlue"></span>
+                </div>
+                <h2 class="font-poppins font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900">
+                    Certificate of Registration
+                </h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-electricBlue to-cyanNeon mx-auto mt-3 rounded-full"></div>
+                <p class="text-slate-600 text-xs sm:text-sm mt-3 font-normal max-w-2xl mx-auto leading-relaxed">
+                    Registered under The Tamil Nadu Societies Registration Act, 1975 (Tamil Nadu Act 27 of 1975) &bull; Sl. No.: 115 / 2007
+                </p>
+            </div>
+
+            <!-- Certificate Display Card -->
+            <div class="glass-card rounded-3xl border border-slate-200/90 overflow-hidden shadow-xl p-4 sm:p-8 bg-white max-w-3xl mx-auto reveal">
+                <div class="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-md flex justify-center bg-slate-50">
+                    <img src="certficateReg.jpeg" 
+                         alt="Certificate of Registration - Kancheepuram District Roller Skating Association" 
+                         class="w-full h-auto max-h-[850px] object-contain rounded-xl transition-transform duration-300 hover:scale-[1.01]"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%221100%22 viewBox=%220 0 800 1100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23FFFFFF%22 stroke=%22%23CBD5E1%22 stroke-width=%2210%22/><text x=%2250%25%22 y=%2230%25%22 font-family=%22Poppins%22 font-size=%2228%22 font-weight=%22bold%22 fill=%22%230F172A%22 text-anchor=%22middle%22>Form No. II</text><text x=%2250%25%22 y=%2240%25%22 font-family=%22Poppins%22 font-size=%2224%22 font-weight=%22bold%22 fill=%22%230284C7%22 text-anchor=%22middle%22>CERTIFICATE OF REGISTRATION OF SOCIETIES</text><text x=%2250%25%22 y=%2250%25%22 font-family=%22Poppins%22 font-size=%2220%22 fill=%22%23334155%22 text-anchor=%22middle%22>KANCHEEPURAM DISTRICT ROLLER SKATING ASSOCIATION</text><text x=%2250%25%22 y=%2258%25%22 font-family=%22Poppins%22 font-size=%2218%22 fill=%22%2364748B%22 text-anchor=%22middle%22>Sl. No.: 115 / 2007</text></svg>';">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-white py-12 sm:py-16 border-t border-slate-200 relative z-20 overflow-hidden text-slate-700">
         <div class="absolute top-0 right-0 w-64 h-64 bg-sky-100/50 rounded-full blur-[100px] pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
                 
-                <!-- Col 1 -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-10 h-10 bg-gradient-to-tr from-electricBlue to-cyanNeon rounded-lg flex items-center justify-center shadow-glow">
@@ -756,20 +747,8 @@
                     <p class="text-slate-500 text-xs leading-relaxed mb-6">
                         Officially recognized unit under the Tamil Nadu Roller Skating Association (TNRSA). Promoting active youth athletic performance, safety guidance, and speed skating milestones since 1999.
                     </p>
-                    <!-- <div class="flex items-center space-x-3">
-                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-electricBlue hover:border-electricBlue flex items-center justify-center transition-all">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-electricBlue hover:border-electricBlue flex items-center justify-center transition-all">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-electricBlue hover:border-electricBlue flex items-center justify-center transition-all">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- Col 2 -->
                 <div>
                     <h4 class="font-poppins font-bold text-sm tracking-wider uppercase text-slate-900 mb-6">Navigation</h4>
                     <ul class="space-y-3 text-xs">
@@ -778,10 +757,10 @@
                         <li><a href="#coaches-meeting" class="text-slate-600 hover:text-electricBlue transition-all">Coaches Meeting</a></li>
                         <li><a href="#leadership" class="text-slate-600 hover:text-electricBlue transition-all">Executive Leadership</a></li>
                         <li><a href="#contact" class="text-slate-600 hover:text-electricBlue transition-all">Contact Desk</a></li>
+                        <li><a href="#certificate" class="text-slate-600 hover:text-electricBlue transition-all">Registration Certificate</a></li>
                     </ul>
                 </div>
 
-                <!-- Col 3 -->
                 <div>
                     <h4 class="font-poppins font-bold text-sm tracking-wider uppercase text-slate-900 mb-6">Affiliation Hierarchy</h4>
                     <div class="space-y-2.5">
@@ -804,11 +783,10 @@
 
             </div>
 
-            <!-- Bottom Row -->
             <div class="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between text-center gap-4 text-slate-500">
                 <div class="flex flex-col text-left md:text-left">
                     <p class="text-[11px] leading-relaxed">&copy; 2026 Kanchipuram District Roller Skating Association. All Rights Reserved.</p>
-                    <p class="text-[9px] text-slate-400 mt-1">Recognized under Tamil Nadu Roller Skating Association (TNRSA) and affiliated with the Roller Skating Federation of India (RSFI).</p>
+                    <p class="text-[9px] text-slate-400 mt-1">Recognized under Tamil Nadu Roller Skating Association (TNRSA) &bull; Sl. No.: 115 / 2007 &bull; Affiliated with RSFI.</p>
                 </div>
                 <div class="flex space-x-4 text-[10px] tracking-widest font-bold">
                     <a href="#" class="hover:text-electricBlue">PRIVACY POLICY</a>
@@ -819,7 +797,6 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
     <script>
         window.addEventListener('load', () => {
             const progress = document.getElementById('loader-progress');
